@@ -1,0 +1,10 @@
+package com.assignment.collection;
+
+public class Person {
+
+	int id;
+	String name;
+	String college;
+	int age;
+	
+}

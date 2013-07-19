@@ -1,0 +1,10 @@
+package com.webonise.assignment.dinningphilosopher;
+
+public class Philosopher 
+{
+	private String name;
+	private boolean _eating;
+	private boolean _thinking;
+	private boolean _waiting;
+
+}

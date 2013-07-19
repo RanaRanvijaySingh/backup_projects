@@ -1,0 +1,44 @@
+package com.webonise.serveletdemo.model;
+
+import java.io.Serializable;
+
+public class Employee implements Serializable
+{
+	private String name ;
+	private int id;
+	private int age;
+	private String dob;
+	private int dept_id;
+	
+	public Employee()
+	{
+		this.name=name;
+		this.id=id;
+		this.age=age;
+		this.dob=dob;
+		this.dept_id=dept_id;
+	}
+	public int getId()
+	{
+		return id;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public String getDob()
+	{
+		return dob;
+	}
+	public int getDeptId()
+	{
+		return dept_id;
+		
+	}
+	public int getAge()
+	{
+		return age;
+	}
+	
+	
+}

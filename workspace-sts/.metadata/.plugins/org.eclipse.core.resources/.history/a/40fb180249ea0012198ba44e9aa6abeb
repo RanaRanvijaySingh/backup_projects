@@ -1,0 +1,8 @@
+package com.webonise.servletdemo.model.Employee.imp;
+
+import com.webonise.servletdemo.model.CreateEmployee;
+import com.webonise.servletdemo.model.Employee.EmployeeInterface;
+
+public class Employee implements  EmployeeInterface {
+
+}

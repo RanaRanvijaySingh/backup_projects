@@ -1,0 +1,45 @@
+package com.webonise.assignment.dinningphilosopher;
+
+public class Philosopher implements Runnable 
+{
+	private String name;
+	private int id;
+	private boolean _eating;
+	private boolean _thinking;
+	private boolean _waiting;
+	private boolean _ready;
+	Chopstick leftChopstick;
+	Chopstick rightChopstick;
+	
+	
+	Philosopher(int id ,String name,Chopstick rightStick, Chopstick leftStick)
+	{
+		
+		this.id=id;
+		this.name=name;
+	}
+	boolean isEating()
+	{
+		return _eating;
+	}
+	boolean isThinking()
+	{
+		return _thinking;
+	}
+	boolean isWaiting()
+	{
+		return _waiting;
+	}
+	boolean isReady()
+	{
+		return _ready;
+	}
+	@Override
+	public void run() 
+	{
+		System.out.println("the thread has started ");
+		
+		
+	}
+}
+

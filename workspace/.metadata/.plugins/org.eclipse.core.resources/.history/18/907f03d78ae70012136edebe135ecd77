@@ -1,0 +1,21 @@
+package com.webonise.assignment.patternmatch;
+
+public class PatternMatch 
+{
+	public static void main (String args[])
+	{
+
+		int x,y;
+		String s = "(())";
+	      
+		for(int i =0;i<s.length();i++)
+			{
+				char ch = s.charAt(i);
+				char chnext=s.charAt(i+1);
+				if(ch=='('&&chnext==')')
+					System.out.print(i);
+			}
+		
+	}
+
+}

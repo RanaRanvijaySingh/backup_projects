@@ -1,0 +1,11 @@
+package com.webonise.servletdemo.service;
+
+import java.sql.SQLException;
+
+import com.webonise.serveletdemo.model.Department;
+
+public interface DepartmentServiceInterface 
+{
+	public void addIntoDepartment(Department department);
+
+}

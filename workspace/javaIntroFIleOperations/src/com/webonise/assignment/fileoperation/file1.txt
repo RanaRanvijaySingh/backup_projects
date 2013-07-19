@@ -1,0 +1,5 @@
+hello this is the file1.txt
+second line is :  hello hi how are you.
+third line is : hi... i m fine .
+4th line is : what are you doing  ?
+5th line is : i m playing with the files.,. 

@@ -1,0 +1,20 @@
+package com.webonise.assignment.dinningphilosopher;
+
+public class Chopstick 
+{
+	private boolean inUse;
+	
+	boolean isUsing()
+	{
+		return inUse;
+	}
+	void notAvailable()
+	{
+		this.inUse=false;
+	}
+	void isAvailable()
+	{
+		this.inUse=true;
+	}
+
+}

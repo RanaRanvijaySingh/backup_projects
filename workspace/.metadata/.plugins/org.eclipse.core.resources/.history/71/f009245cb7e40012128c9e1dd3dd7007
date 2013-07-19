@@ -1,0 +1,33 @@
+package com.webonise.assignment.dinningphilosopher;
+
+public class Philosopher implements Runnable 
+{
+	private String name;
+	private int id;
+	Chopstick leftChopstick;
+	Chopstick rightChopstick;
+	
+	
+	Philosopher(int id ,String name,Chopstick rightStick, Chopstick leftStick)
+	{
+		
+		this.id=id;
+		this.name=name;
+		this.leftChopstick=leftStick;
+		this.rightChopstick=rightStick;
+		
+		this.leftChopstick.putDown();
+		this.leftChopstick.putDown();
+		
+	}
+	@Override
+	public void run() 
+	{
+		synchronized (this) 
+		{
+			System.out.println(name+" hello ");
+			
+		}
+		
+	}
+}

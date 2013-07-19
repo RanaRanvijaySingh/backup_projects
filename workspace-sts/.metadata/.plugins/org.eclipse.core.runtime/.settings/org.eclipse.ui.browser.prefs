@@ -1,0 +1,3 @@
+browsers=<?xml version\="1.0" encoding\="UTF-8"?>\n<web-browsers current\="0">\n<system/>\n<external location\="/usr/bin/firefox" name\="Firefox"/>\n</web-browsers>
+eclipse.preferences.version=1
+internalWebBrowserHistory=http\://localhost\:9999/SpringMVC/|*|http\://localhost\:9999/myServeletNew1/EmployeeServlet|*|http\://localhost\:9999/myServeletNew1/MainServlet?page\=employee&submit\=submit|*|http\://localhost\:9999/myServeletNew1/MainPage.jsp|*|http\://localhost\:9999/myServeletNew1/|*|http\://localhost\:9999/myServeletNew1/DepartmentServlet|*|http\://localhost\:9999/myServeletNew1/MainServlet?page\=demartment&submit\=submit|*|

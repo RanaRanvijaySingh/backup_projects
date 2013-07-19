@@ -1,0 +1,64 @@
+package com.webonise.serveletdemo.model;
+
+import java.io.Serializable;
+
+public class Employee implements Serializable
+{
+	private String name ;
+	private int id;
+	private int age;
+	private String dob;
+	private int dept_id;
+	
+	public Employee(String name, int id, int age, String dob, int dept_id)
+	{
+		this.name=name;
+		this.id=id;
+		this.age=age;
+		this.dob=dob;
+		this.dept_id=dept_id;
+		System.out.println("EMPLOYEE: returning from constructor");
+	}
+	public int getId()
+	{
+		return id;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public String getDob()
+	{
+		return dob;
+	}
+	public int getDeptId()
+	{
+		return dept_id;
+		
+	}
+	public int getAge()
+	{
+		return age;
+	}
+	public void setName(String name )
+	{
+		this.name=name;
+	}
+	public void setAge(int age)
+	{
+		this.age=age;
+	}
+	public void setDob(String dob)
+	{
+		this.dob=dob;
+	}
+	public void setDeptId(int dept_id)
+	{
+		this.dept_id=dept_id;
+	}
+	public void setId(int id)
+	{
+		this.id=id;
+	}
+	
+}

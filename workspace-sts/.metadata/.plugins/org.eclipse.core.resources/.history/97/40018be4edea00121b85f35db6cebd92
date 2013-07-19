@@ -1,0 +1,11 @@
+package com.webonise.sevletdemo.dao;
+
+import java.sql.SQLException;
+
+import com.webonise.serveletdemo.model.Employee;
+
+public interface EmployeeDoaInterface 
+{
+	void addEmployeeRow(Employee employee) throws SQLException;
+
+}

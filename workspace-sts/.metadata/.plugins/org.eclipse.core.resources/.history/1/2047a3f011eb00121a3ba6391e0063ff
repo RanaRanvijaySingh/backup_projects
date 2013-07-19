@@ -1,0 +1,38 @@
+package com.webonise.servletdemo.service;
+
+import java.sql.SQLException;
+
+import com.webonise.serveletdemo.model.Department;
+import com.webonise.sevletdemo.dao.DepartmentDoaInterface;
+import com.webonise.sevletdemo.dao.DepartmentImp;
+
+/**
+ * @author webonise
+ *service class for the department 
+ */
+public class DepartmentService implements DepartmentServiceInterface
+{
+
+	/* (non-Javadoc)
+	 * @see com.webonise.servletdemo.service.DepartmentServiceInterface#addIntoDepartment(com.webonise.serveletdemo.model.Department)
+	 * function to add the values in the department table by calling model class
+	 */
+	@Override
+	public void addIntoDepartment(Department department) 
+	{
+		DepartmentDoaInterface departmentDao=new DepartmentImp();
+		try {
+			System.out.println("DEPARTMENT: service : adding row");
+			departmentDao.addDepartmentRow(department);
+			System.out.println("service : return from the adding department");
+			
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

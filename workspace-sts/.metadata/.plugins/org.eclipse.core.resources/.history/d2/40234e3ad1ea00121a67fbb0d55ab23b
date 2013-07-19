@@ -1,0 +1,29 @@
+package com.webonise.sevletdemo.dao;
+
+import com.webonise.serveletdemo.model.Department;
+
+public class DepartmentImp implements DepartmentDoaInterface 
+{
+	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+	 
+	private static final String url = "jdbc:mysql://localhost/test";
+ 
+    private static final String user = "root";
+ 
+    private static final String password = "root";
+
+	@Override
+	public void addDepartmentRow( Department department)
+	{
+		Connection con = DriverManager.getConnection(url, user, password);   
+    	
+		Statement stat_emp = con.createStatement();
+		Statement stat_dept = con.createStatement();
+		Statement stat_noEMP = con.createStatement();
+		Statement stat_DOB = con.createStatement();
+		Statement stat_DEPT = con.createStatement();
+		Statement stat_EMP = con.createStatement();
+		
+	}
+
+}

@@ -1,0 +1,11 @@
+package com.webonise.servletdemo.model.Employee;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+public interface EmployeeInterface 
+{
+	public void createTable() throws SQLException, IOException;
+	public void insertRow(String name , int age , String dob ,int dept);
+
+}

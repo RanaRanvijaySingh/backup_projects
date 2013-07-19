@@ -1,0 +1,36 @@
+package com.assignment.collection;
+
+import java.util.*;
+
+public class ArrayListDemo {
+   public static void main(String args[]) {
+     
+      List <Person> personList = new ArrayList<Person>();
+      
+      Person rana=new Person();
+      Person anvay=new Person();
+      Person vijay=new Person();
+      Person ameya=new Person();
+      Person bhuvan=new Person();
+      rana.setData(1, "rana", "bvbcet", 22);
+      rana.setData(2, "anvay", "singadh", 22);
+      rana.setData(3, "vijay", "mit", 22);
+      rana.setData(4, "ameya", "vtu", 28);
+      rana.setData(5, "bhuvan", "bvbcet", 36);
+      
+      personList.add(rana);
+      personList.add(anvay);
+      personList.add(vijay);
+      personList.add(ameya);
+      personList.add(bhuvan);
+      
+      Iterator<Person> myIterator = personList.iterator();
+      System.out.println("Contents of al: " + personList);
+      /*
+
+      al.remove("F");
+      al.remove(2);
+      System.out.println("Size of al after deletions: " + al.size());
+      System.out.println("Contents of al: " + al);*/
+   }
+}

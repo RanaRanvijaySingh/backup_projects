@@ -1,0 +1,165 @@
+package com.webonise.assignment.jdbcdemo;
+
+import java.sql.*;
+ 
+class jdbcDemo 
+{
+	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+ 
+	private static final String url = "jdbc:mysql://localhost/test";
+ 
+    private static final String user = "root";
+ 
+    private static final String password = "root";
+ 
+    public static void main(String args[]) 
+    {
+    	Statement stat_emp=null;
+    	Statement stat_dept=null;
+    	Statement stat_reg=null;
+    	Statement stat_noEMP=null;
+    	Statement stat_DOB=null;
+        try {
+        	
+            Connection con = DriverManager.getConnection(url, user, password);            
+            //System.out.println("now to create statement");
+            
+            stat_emp = con.createStatement();
+            stat_dept = con.createStatement();
+            stat_reg = con.createStatement();
+            stat_noEMP = con.createStatement();
+            stat_DOB = con.createStatement();
+            //System.out.println("now to create statement");
+            
+            String query_emp="SELECT * FROM employee";
+            String query_dept="SELECT * FROM department";
+            String query_noEMP="SELECT dept_name,COUNT(employee.id) "
+            		+ "AS noOfEmployee "
+            		+ "FROM employee   "
+            		+ "LEFT JOIN department "
+            		+ "ON employee.dept_id=department.id GROUP BY dept_name";	
+            
+            String query_DOB="SELECT t1.fname, t1.age, t1.dob "
+            		+ "FROM employee t1 "
+            		+ "INNER JOIN employee t2 "
+            		+ "ON t2.dob = t1.dob "
+            		+ "WHERE t2.id != t1.id";
+            //System.out.println("now to create statement");
+            
+            
+            ResultSet rs_emp=stat_emp.executeQuery(query_emp);
+            ResultSet rs_dept=stat_dept.executeQuery(query_dept);
+            ResultSet rs_noEMP=stat_noEMP.executeQuery(query_noEMP);
+            ResultSet rs_DOB=stat_DOB.executeQuery(query_DOB);
+            System.out.println("now to create statement");
+            
+            displayTableEmployee(rs_emp);
+            displayTableDepartment(rs_dept);
+            
+            //createTable(stat_reg);
+    
+            getNoOfEmployee(rs_noEMP);
+            
+            //findSimilarDOB(rs_DOB);
+           
+            System.out.println("Success");
+ 
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+	private static void findSimilarDOB(ResultSet rs_DOB) throws SQLException 
+	{
+		System.out.println("\n\n---------------------------------------------------");
+        System.out.println("NAME\tAGE\tDOB");
+        System.out.println("---------------------------------------------------");
+        while(rs_DOB.next())
+        {
+           //Retrieve by column name
+           String name=rs_DOB.getString("fname");
+           int age  = rs_DOB.getInt("age");
+           String dob=rs_DOB.getString("dob");
+           System.out.println(name+"\t"+age+"\t"+dob);
+                   
+        }
+		
+	}
+
+
+	private static void getNoOfEmployee(ResultSet rs_noEMP) throws SQLException
+	{
+		
+		 
+		 System.out.println("\n\n---------------------------------------------------");
+         System.out.println("DEPARTMENT\tNO OF EMP");
+         System.out.println("---------------------------------------------------");
+         while(rs_noEMP.next())
+         {
+            //Retrieve by column name
+            String dept_name= rs_noEMP.getString("dept_name");
+            int noEMP=rs_noEMP.getInt("noOfEmployee");
+            //Display values
+            System.out.println(dept_name+"\t\t"+noEMP);
+           
+         }
+		
+	}
+
+	private static void createTable(Statement stat_reg) throws SQLException 
+	{	
+		String query_reg = "CREATE TABLE REGISTRATION " +
+            "(id INTEGER not NULL, " +
+            " first VARCHAR(255), " + 
+            " last VARCHAR(255), " + 
+            " age INTEGER, " + 
+            " PRIMARY KEY ( id ))"; 
+    	stat_reg.executeUpdate(query_reg);	
+    	
+    	String sql = "INSERT INTO REGISTRATION " +
+                "VALUES (100, 'Zara', 'Ali', 18)";
+    	 stat_reg.executeUpdate(sql);
+	}
+
+	private static void displayTableDepartment(ResultSet rs_dept) throws SQLException 
+	{
+
+        System.out.println("\n\n---------------------------------------------------");
+        System.out.println("ID\tDEPARTMENT NAME");
+        System.out.println("---------------------------------------------------");
+        while(rs_dept.next())
+        {
+           //Retrieve by column name
+           int id  = rs_dept.getInt("id");
+           String dept_name= rs_dept.getString("dept_name");
+           
+           //Display values
+           System.out.println(id+"\t"+dept_name);
+          
+        }
+		
+	}
+
+	private static void displayTableEmployee(ResultSet rs_emp) throws SQLException 
+	{
+		System.out.println("---------------------------------------------------");
+        System.out.println("ID\tNAME\tAGE\tDOB\t\tDEPATRMENT");
+        System.out.println("---------------------------------------------------");
+        while(rs_emp.next())
+        {
+           //Retrieve by column name
+           int id  = rs_emp.getInt("id");
+           String name= rs_emp.getString("fname");
+           int age = rs_emp.getInt("age");
+           String dob=rs_emp.getString("dob");
+           int dept_id = rs_emp.getInt("dept_id");
+           
+           //Display values
+           System.out.println(id+"\t"+name+"\t"+age+"\t"+dob+"\t"+dept_id);
+          
+        }	
+	}
+}

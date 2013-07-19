@@ -1,0 +1,9 @@
+package com.webonise.servletdemo.model.department;
+
+public interface DepartmentInterface {
+
+		public void createTable();
+		public void insertRow(String name);
+
+
+}

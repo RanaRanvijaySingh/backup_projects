@@ -1,0 +1,70 @@
+package com.webonise.assignment.jdbcdemo;
+
+import java.sql.*;
+import java.sql.DriverManager;
+ 
+class jdbcDemo 
+{
+	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+ 
+	private static final String url = "jdbc:mysql://localhost/test";
+ 
+    private static final String user = "root";
+ 
+    private static final String password = "root";
+ 
+    public static void main(String args[]) 
+    {
+    	Statement stat_emp=null;
+    	Statement stat_dept=null;
+        try {
+        	
+            Connection con = DriverManager.getConnection(url, user, password);            
+            //System.out.println("now to create statement");
+            
+            stat_emp = con.createStatement();
+            stat_dept = con.createStatement();
+            //System.out.println("now to create statement");
+            
+            String query_emp="SELECT * FROM employee";
+            String query_dept="SELECT * FROM department";
+            //System.out.println("now to create statement");
+            
+            ResultSet rs_emp=stat_emp.executeQuery(query_emp);
+            ResultSet rs_dept=stat_dept.executeQuery(query_dept);
+            //System.out.println("now to create statement");
+            
+            System.out.println("ID\tNAME\tAGE\tDOB\t\tDEPATRMENT\n\n");
+           /* while(rs_emp.next())
+            {
+               //Retrieve by column name
+               int id  = rs_emp.getInt("id");
+               String name= rs_emp.getString("fname");
+               int age = rs_emp.getInt("age");
+               String dob=rs_emp.getString("dob");
+               int dept_id = rs_emp.getInt("dept_id");
+               
+               //Display values
+               System.out.println(id+"\t"+name+"\t"+age+"\t"+dob+"\t"+dept_id);
+              
+            }
+            */
+            System.out.println("ID\tDEPARTMENT NAME\n\n");
+            while(rs_dept.next())
+            {
+               //Retrieve by column name
+               int id  = rs_dept.getInt("id");
+               String dept_name= rs_dept.getString("fname");
+               
+               //Display values
+               System.out.println(id+"\t"+dept_name);
+              
+            }
+                       
+            System.out.println("Success");
+ 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

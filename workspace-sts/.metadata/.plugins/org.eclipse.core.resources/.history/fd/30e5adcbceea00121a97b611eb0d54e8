@@ -1,0 +1,8 @@
+package com.webonise.servletdemo.service;
+
+import com.webonise.serveletdemo.model.Employee;
+
+public interface EmployeeServiceInterface {
+
+	public void addIntoEmployee(Employee employee);
+}

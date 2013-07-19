@@ -1,0 +1,66 @@
+package com.webonise.assignment.dinningphilosopher;
+
+public class Philosopher implements Runnable 
+{
+	private String name;
+	private int id;
+	private boolean _eating;
+	private boolean _thinking;
+	private boolean _waiting;
+	private boolean _ready;
+	Chopstick leftChopstick;
+	Chopstick rightChopstick;
+	
+	
+	Philosopher(int id ,String name,Chopstick rightStick, Chopstick leftStick)
+	{
+		
+		this.id=id;
+		this.name=name;
+		this._eating=false;
+		this._thinking=true;
+		this._waiting=true;
+	}
+	boolean isEating()
+	{
+		return _eating;
+	}
+	boolean isThinking()
+	{
+		return _thinking;
+	}
+	boolean isWaiting()
+	{
+		return _waiting;
+	}
+	boolean isReady()
+	{
+		return _ready;
+	}
+	void display()
+	{
+		System.out.print("name : "+this.name+" ");
+		if(isEating())
+			System.out.println("is eating .");
+		if(isThinking())
+			System.out.println("is thinking .");
+		if(isWaiting())
+			System.out.println("is waiting .");
+		System.out.println("\n");
+	}
+	@Override
+	public void run() 
+	{
+		this.display();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//System.out.println("the thread has started ");
+			
+		
+	}
+}
+

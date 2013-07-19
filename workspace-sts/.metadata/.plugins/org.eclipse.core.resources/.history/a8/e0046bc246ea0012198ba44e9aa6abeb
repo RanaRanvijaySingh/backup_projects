@@ -1,0 +1,128 @@
+package com.webonise.serveletdemo.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.sql.*;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.mysql.jdbc.Connection;
+
+/**
+ * Servlet implementation class AddEmployee
+ */
+@WebServlet("/AddEmployee")
+public class AddEmployee extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+	 
+	private static final String url = "jdbc:mysql://localhost/test";
+ 
+    private static final String user = "root";
+ 
+    private static final String password = "root";
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AddEmployee() 
+    {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter out= response.getWriter();
+		String name=request.getParameter("name");
+		String id=request.getParameter("id");
+		String age=request.getParameter("age");
+		String dob=request.getParameter("dob");
+		
+		String dept_id=request.getParameter("dept_id");
+		out.println("<h3>the employee details are: </h3>");
+		out.println(name);
+		out.println(id);
+		out.println(age);
+		out.println(dob);
+		out.println(dept_id);
+	
+		// getServletConfig().getServletContext().getRequestDispatcher("/AddDepatment.jsp").forward(request, response); 
+		
+		try 
+    	{
+    	
+    		Connection con = DriverManager.getConnection(url, user, password);   
+		
+    		Statement stat_emp = con.createStatement();
+    		Statement stat_dept = con.createStatement();
+    		Statement stat_noEMP = con.createStatement();
+    		Statement stat_DOB = con.createStatement();
+    		Statement stat_DEPT = con.createStatement();
+    		Statement stat_EMP = con.createStatement();
+    	
+              
+              createTableEmployee(stat_EMP);
+           //   System.out.println("now to create statement");
+		
+	}
+		
+		private static void createTableEmployee(Statement stat_EMP) throws SQLException 
+		{
+			String query_reg = "create table employee(id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,"
+					+ "fname VARCHAR(15) NOT NULL,"
+					+ "age TINYINT(3) UNSIGNED NOT NULL,"
+					+ "dob DATE NOT NULL,"
+					+ "dept_id TINYINT UNSIGNED NOT NULL,"
+					+ "PRIMARY KEY(id),"
+					+ "FOREIGN KEY (dept_id) REFERENCES department(id))"; 
+		    	stat_EMP.executeUpdate(query_reg);	
+		    	
+		    	String sql = "insert into employee values(NULL,'rana',22,'1989-11-5',2)";
+		    	 stat_EMP.executeUpdate(sql);
+		    	 sql = "insert into employee values(NULL,'anvay',22,'1989-5-11',1)";
+		    	 stat_EMP.executeUpdate(sql);
+		    	
+		    	 sql = "insert into employee values(NULL,'vijay',21,'1990-12-6',3)";
+		    	 stat_EMP.executeUpdate(sql);
+		    	 
+		    	 sql = "insert into employee values(NULL,'bhuvan',32,'1972-11-17',2)";
+		    	 stat_EMP.executeUpdate(sql);
+		    	 
+		    	 sql = "insert into employee values(NULL,'aditya',22,'1989-3-5',1)";
+		    	 stat_EMP.executeUpdate(sql);
+		    	
+		    	 sql = "insert into employee values(NULL,'dron',25,'1989-5-11',3)";
+		    	 stat_EMP.executeUpdate(sql);
+		    	 
+		    	 sql = "insert into employee values(NULL,'rakesh',25,'1986-12-12',5)";
+		    	 stat_EMP.executeUpdate(sql);
+		    	 
+		    	 sql = "insert into employee values(NULL,'rahul',22,'1989-4-15',4)";
+		    	 stat_EMP.executeUpdate(sql);
+		    	 
+		    	 sql = "insert into employee values(NULL,'rohit',22,'1989-4-15',4)";
+		    	 stat_EMP.executeUpdate(sql);
+			
+			
+		}
+
+
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	}
+
+}

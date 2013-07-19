@@ -1,0 +1,8 @@
+package com.webonise.servletdemo.model.Employee;
+
+public interface EmployeeInterface 
+{
+	public void createTable();
+	public void insertRow(String name , int age , String dob ,int dept);
+
+}

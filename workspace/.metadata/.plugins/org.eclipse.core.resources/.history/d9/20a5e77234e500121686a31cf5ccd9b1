@@ -1,0 +1,42 @@
+package com.webonise.assignment.reentrantlock;
+import java.io.*;
+import java.util.concurrent.locks.ReentrantLock;
+public class ReentrantLockDemo 
+{
+	public static void main (String args[])throws IOException
+	{
+		Thread first=new Thread("FIRST");
+		Thread second=new Thread("SECOND");
+		Thread third=new Thread("THIRD");
+		Thread forth=new Thread("FORTH");
+		
+		ReentrantLock []lock=new ReentrantLock[4];
+		for(int i=0;i<4;i++)
+		{
+			lock[i]=new ReentrantLock();
+			DemoPrint demo1=new DemoPrint(lock[i],"M1");
+			
+		}
+		try
+		{
+			System.out.println(lock[0]+"hello this is a demo");
+		}
+		catch(Exception e)
+		{
+			System.out.println("there is an exception");
+		}
+	}
+
+}
+public class DemoPrint
+{
+	String hello=null;
+	Lock lock;
+	DemoPrint(Lock lock,String msg)
+	{
+		lock=lock;
+		hello=msg;
+	}
+	void displayMessage()
+	
+}

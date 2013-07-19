@@ -1,0 +1,28 @@
+package polygon_assignment1.JAVA.polygon_assign;
+
+public class Triangle implements Polygon{
+	
+		private int sides;
+		public void getSide(int noOfSide)
+		{
+			this.sides=noOfSide;
+		}
+		public void getSumOfInnerAngle()
+		{
+			long sum=180*(sides-2);
+			System.out.println("For Triangle :" +sum);
+		}
+		public long getArea()
+		{
+			long area = 0;
+			return area;
+
+		}
+		public static void main(String args[])
+		{
+			Triangle triangle=new Triangle();
+		}
+		
+	
+
+}

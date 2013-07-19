@@ -1,0 +1,26 @@
+package com.webonise.assignment.patternmatch;
+import java.io.*;
+public class PatternMatch 
+{
+	public static void main (String args[])
+	{
+
+		int x,y;
+		String s = "((()))";
+	      
+		for(int i =0;i<s.length();i++)
+			{
+				char ch = s.charAt(i);
+				char chnext=s.charAt(i+1);
+				if(ch=='('&&chnext==')')
+				{
+					x=i;
+					y=i+1;
+					break;
+				}
+			}
+		System.out.println(x + y);
+		
+	}
+
+}

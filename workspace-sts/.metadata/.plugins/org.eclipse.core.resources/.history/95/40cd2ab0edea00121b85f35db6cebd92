@@ -1,0 +1,11 @@
+package com.webonise.servletdemo.service;
+
+import java.sql.SQLException;
+
+import com.webonise.serveletdemo.model.Employee;
+
+public interface EmployeeServiceInterface {
+
+	public void addIntoEmployee(Employee employee) throws SQLException;
+
+}

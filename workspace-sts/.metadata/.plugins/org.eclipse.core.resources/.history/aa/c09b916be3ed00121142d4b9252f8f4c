@@ -1,0 +1,10 @@
+package com.sample;
+
+import java.io.Serializable;
+
+public class Person implements Serializable
+{
+	Long id;
+	String 
+
+}

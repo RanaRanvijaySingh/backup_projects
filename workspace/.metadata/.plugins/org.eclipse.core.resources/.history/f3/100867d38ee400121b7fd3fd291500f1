@@ -1,0 +1,8 @@
+package com.webonise.assignment.dinningphilosopher;
+
+public class PhilosopherDining 
+{
+	Chopstick chopstick[]= new Chopstick[5];
+	Philosopher rana=new Phiposopher(int id ,String name,Chopstick rightStick, Chopstick leftStick);
+
+}

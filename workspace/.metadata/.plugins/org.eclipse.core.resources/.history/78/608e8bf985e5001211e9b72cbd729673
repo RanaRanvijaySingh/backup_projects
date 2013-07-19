@@ -1,0 +1,10 @@
+package demo.rmi.print.client;
+
+public class PrintClient {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

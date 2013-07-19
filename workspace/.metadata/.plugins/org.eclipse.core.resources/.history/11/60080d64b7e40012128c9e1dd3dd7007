@@ -1,0 +1,52 @@
+package com.webonise.assignment.dinningphilosopher;
+
+public class PhilosopherDining 
+{
+
+	Chopstick chopstick[]= new Chopstick[5];
+
+	PhilosopherDining()
+	{
+		for(int i=0;i<5;i++)
+			chopstick[i]=new Chopstick();
+		
+		Philosopher rana=new Philosopher(1, "PHILOSOPHER 1",chopstick[1],chopstick[0]);
+		Philosopher anvay=new Philosopher(2, "PHILOSOPHER 2",chopstick[2],chopstick[1]);
+		Philosopher vijay=new Philosopher(3, "PHILOSOPHER 3",chopstick[3],chopstick[2]);
+		Philosopher ameya=new Philosopher(4, "PHILOSOPHER 4",chopstick[4],chopstick[3]);
+		Philosopher bhuvan=new Philosopher(5, "PHILOSOPHER 5",chopstick[0],chopstick[4]);
+		
+		Thread thread_rana=new Thread(rana);
+		Thread thread_anvay=new Thread(anvay);
+		Thread thread_vijay=new Thread(vijay);
+		Thread thread_ameya=new Thread(ameya);
+		Thread thread_bhuvan=new Thread(bhuvan);
+		
+		try 
+	      {
+			thread_rana.join();
+			thread_anvay.join();
+			thread_vijay.join();
+			thread_ameya.join();
+			thread_bhuvan.join();
+	      } 
+	      catch(InterruptedException e) 
+	      {
+	         System.out.println("Interrupted");
+	      }
+		
+		thread_rana.start();
+		thread_anvay.start();
+		thread_vijay.start();
+		thread_ameya.start();
+		thread_bhuvan.start();
+		
+		
+		
+		
+	}
+	public static void main (String args[])
+	{
+		PhilosopherDining init=new PhilosopherDining();
+	}
+}

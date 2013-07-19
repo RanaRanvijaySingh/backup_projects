@@ -1,0 +1,51 @@
+package com.webonise.serveletdemo.controller;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import com.mysql.jdbc.Statement;
+
+public class Helper 
+{
+	
+		static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+		 
+		private static final String url = "jdbc:mysql://localhost/test";
+	 
+	    private static final String user = "root";
+	 
+	    private static final String password = "root";
+	
+	    public void createTable () throws SQLException
+	
+	    {
+
+			System.out.println("in the helper");
+	    
+	    	Connection con = null;
+			con = DriverManager.getConnection(url, user, password);
+			
+			System.out.println("in the helper");
+			Statement stat_EMP = (Statement) con.createStatement();
+			
+			System.out.println("in the helper");
+			String query_reg = "create table employee(id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,"
+					+ "fname VARCHAR(15) NOT NULL,"
+					+ "age TINYINT(3) UNSIGNED NOT NULL,"
+					+ "dob DATE NOT NULL,"
+					+ "dept_id TINYINT UNSIGNED NOT NULL,"
+					+ "PRIMARY KEY(id),"
+					+ "FOREIGN KEY (dept_id) REFERENCES department(id))"; 
+			
+			System.out.println("in the helper");
+			stat_EMP.executeUpdate(query_reg);	
+			
+			System.out.println("in the helper");
+			System.out.println("out of  helper");
+		}
+
+	
+
+
+}

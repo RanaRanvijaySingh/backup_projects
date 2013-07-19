@@ -1,0 +1,36 @@
+package com.webonise.assignment.collection;
+
+
+
+public class Person {
+
+	private int id;
+	private String name;
+	private String college;
+	private int age;
+	Person(int id,String name,String college,int age)
+	{
+		this.id=id;
+		this.name=name;
+		this.college=college;
+		this.age=age;
+	}
+	Person(){}
+	public String getName()
+	{
+		return this.name;
+	}
+	public int getId()
+	{
+		return this.id;
+	}
+	public int getAge()
+	{
+		return this.age;
+	}
+	public String getCollege()
+	{
+		return this.college;
+	}
+	
+}

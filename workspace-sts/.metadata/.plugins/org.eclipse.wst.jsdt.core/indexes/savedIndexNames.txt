@@ -1,0 +1,7 @@
+INDEX VERSION 1.122+/home/webonise/workspace-sts/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1345516571.index
+4013871144.index
+2019750737.index
+2461709280.index
+4026180967.index
+2660891749.index

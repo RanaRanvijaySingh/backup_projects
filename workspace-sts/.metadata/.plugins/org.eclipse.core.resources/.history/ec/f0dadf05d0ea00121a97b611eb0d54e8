@@ -1,0 +1,15 @@
+package com.webonise.sevletdemo.dao;
+
+import com.webonise.serveletdemo.model.Department;
+
+public class DepartmentImp implements DepartmentDoaInterface 
+{
+
+	@Override
+	public void addDepartmentRow( Department department)
+	{
+		
+		
+	}
+
+}

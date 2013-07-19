@@ -1,0 +1,34 @@
+package com.webonise.assignment.jdbcdemo;
+
+import java.sql.*;
+import java.sql.DriverManager;
+ 
+class jdbcDemo 
+{
+ 
+    private static final String url = "jdbc:mysql://localhost";
+ 
+    private static final String user = "root";
+ 
+    private static final String password = "root";
+ 
+    public static void main(String args[]) 
+    {
+    	Statement statement=null;
+        try {
+        	
+            Connection con = DriverManager.getConnection(url, user, password);
+            
+            System.out.println("now to create statement");
+            
+            statement = con.createStatement();
+            String query="SELECT * FROM employee";
+            ResultSet rs=statement.executeQuery(query);
+
+            System.out.println("Success");
+ 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

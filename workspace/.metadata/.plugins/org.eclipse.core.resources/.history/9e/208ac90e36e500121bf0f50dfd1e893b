@@ -1,0 +1,32 @@
+package com.webonise.assignment.reentrantlock;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class DemoPrint implements Runnable
+{
+	String hello=null;
+	Lock lock;
+	DemoPrint(ReentrantLock lock,String msg)
+	{
+		lock=lock;
+		hello=msg;
+	}
+	void displayMessage()
+	{
+		lock.lock();
+		System.out.println(this.hello+" ");
+		releaseLock();
+	}
+	private void releaseLock() {
+		// TODO Auto-generated method stub
+		System.out.println("releasing lock "+ hello);
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		this.displayMessage();
+		
+	}
+	
+}

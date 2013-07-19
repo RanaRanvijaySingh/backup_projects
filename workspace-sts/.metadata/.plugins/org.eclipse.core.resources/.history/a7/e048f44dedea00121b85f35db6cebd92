@@ -1,0 +1,30 @@
+package com.webonise.servletdemo.service;
+
+import java.sql.SQLException;
+
+import com.webonise.serveletdemo.model.Employee;
+import com.webonise.sevletdemo.dao.EmployeeDoaInterface;
+import com.webonise.sevletdemo.dao.EmployeeImp;
+
+public class EmployeeService implements EmployeeServiceInterface
+{
+
+	@Override
+	public void addIntoEmployee(Employee employee) throws SQLException 
+	{
+			System.out.println("EMPLOYEE: service : into the employee");
+			
+			EmployeeDoaInterface employeeDoa=new EmployeeImp();
+			
+			System.out.println("EMPLOYEE: service : into the employee");
+			
+			employeeDoa.addEmployeeRow(employee);	
+			
+			System.out.println("EMPLOYEE: service : returning from the employee");
+				
+			//employeeDoa.fetch
+		
+	}
+	
+
+}

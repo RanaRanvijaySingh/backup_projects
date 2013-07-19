@@ -1,0 +1,17 @@
+package com.assignment.collection;
+
+public class Person {
+
+	int id;
+	String name;
+	String college;
+	int age;
+	void setData(int id,String name,String college,int age)
+	{
+		this.id=id;
+		this.name=name;
+		this.college=college;
+		this.age=age;
+	}
+	
+}

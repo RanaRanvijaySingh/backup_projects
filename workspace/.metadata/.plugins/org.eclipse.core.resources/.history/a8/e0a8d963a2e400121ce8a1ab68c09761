@@ -1,0 +1,128 @@
+package com.webonise.assignment.dinningphilosopher;
+
+public class Philosopher implements Runnable 
+{
+	private String name;
+	private int id;
+	private boolean _eating;
+	private boolean _thinking;
+	private boolean _waiting;
+	private boolean _ready;
+	Chopstick leftChopstick;
+	Chopstick rightChopstick;
+	
+	
+	Philosopher(int id ,String name,Chopstick rightStick, Chopstick leftStick)
+	{
+		
+		this.id=id;
+		this.name=name;
+		this._eating=false;
+		this._thinking=true;
+		this._waiting=true;
+		this.leftChopstick=leftStick;
+		this.rightChopstick=rightStick;
+		
+		leftChopstick.notAvailable();
+		rightChopstick.notAvailable();
+		
+	}
+	boolean isEating()
+	{
+		return _eating;
+	}
+	boolean isThinking()
+	{
+		return _thinking;
+	}
+	boolean isWaiting()
+	{
+		return _waiting;
+	}
+	boolean isReady()
+	{
+		return _ready;
+	}
+	void display()
+	{
+		System.out.println("name : "+this.name+" ");
+		if(isEating())
+			System.out.println("is eating .");
+		if(isThinking())
+			System.out.println("is thinking .");
+		if(isWaiting())
+			System.out.println("is waiting .");
+		System.out.println("\n");
+	}
+	@Override
+	public void run() 
+	{
+		synchronized (leftChopstick) 
+		{
+			if(this.leftChopstick.isUsing()&&rightChopstick.isUsing())
+			{
+				System.out.println("is using ");
+			}
+			else
+			{
+				System.out.println(name +"is thinking");
+				
+			}
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//System.out.println("dude u r stuck outside");
+		//this.display();
+		//while(true)
+		//{
+		/*if(this.leftChopstick.inUse)
+			System.out.println(this.name + "left");
+		if(this.rightChopstick.inUse)
+			System.out.println(this.name + "right");
+			
+			*/
+		/*try
+			{
+				if(this.leftChopstick.isUsing() && this.rightChopstick.isUsing())
+				{
+					this._eating=true;
+					this._waiting=false;
+					this._thinking=false;
+					System.out.println(this.name + " is eating .");
+					Thread.sleep(5000);
+				}
+				else
+				{
+					this.rightChopstick.isAvailable();
+					this._eating=false;
+					this._waiting=true;
+					this._thinking=true;
+					System.out.println(this.name + " is thinking .");
+
+				}
+			}
+			catch (Exception e) 
+			{
+				System.out.println("dude u r stuck outside");
+			}*/
+		//}
+		
+		
+		
+		
+	}
+}
+

@@ -1,0 +1,13 @@
+package com.webonise.servletdemo.service;
+
+public class EmployeeService implements EmployeeServiceInterface
+{
+
+	@Override
+	public void addIntoEmployee() 
+	{
+	
+		
+	}
+
+}

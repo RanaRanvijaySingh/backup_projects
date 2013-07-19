@@ -1,0 +1,51 @@
+package com.webonise.serveletdemo.model;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import com.mysql.jdbc.Statement;
+//import com.webonise.servletdemo.model.CreateEmployee;
+import com.webonise.servletdemo.model.Employee.EmployeeInterface;
+
+public class Employee implements  EmployeeInterface {
+
+	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+	 
+	private static final String url = "jdbc:mysql://localhost/test";
+ 
+    private static final String user = "root";
+ 
+    private static final String password = "root";
+	@Override
+	public void createTable() throws IOException, SQLException 
+	{
+		Connection con = null;
+		try {
+			con = DriverManager.getConnection(url, user, password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}   
+    	
+		Statement stat_EMP = (Statement) con.createStatement();
+		
+		String query_reg = "create table employee(id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,"
+				+ "fname VARCHAR(15) NOT NULL,"
+				+ "age TINYINT(3) UNSIGNED NOT NULL,"
+				+ "dob DATE NOT NULL,"
+				+ "dept_id TINYINT UNSIGNED NOT NULL,"
+				+ "PRIMARY KEY(id),"
+				+ "FOREIGN KEY (dept_id) REFERENCES department(id))"; 
+	    	stat_EMP.executeUpdate(query_reg);	
+		
+	}
+
+	@Override
+	public void insertRow(String name, int age, String dob, int dept) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

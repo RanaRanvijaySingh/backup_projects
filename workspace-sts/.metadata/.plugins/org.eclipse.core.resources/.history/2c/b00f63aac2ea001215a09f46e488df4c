@@ -1,0 +1,26 @@
+package com.webonise.serveletdemo.model;
+
+import java.io.Serializable;
+
+import com.webonise.servletdemo.model.department.DepartmentInterface;
+
+public class Department implements Serializable
+{
+	private String name ;
+	private int id;
+	
+	public Department()
+	{
+		this.name=name;
+		this.id=id;
+		}
+	public int getId()
+	{
+		return id;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	
+}

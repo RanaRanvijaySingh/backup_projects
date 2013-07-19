@@ -1,0 +1,21 @@
+package com.webonise.serveletdemo.model;
+
+import com.webonise.servletdemo.model.department.DepartmentInterface;
+
+public class Department implements DepartmentInterface
+{
+
+	@Override
+	public void createTable() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void insertRow(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

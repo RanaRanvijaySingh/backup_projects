@@ -1,0 +1,7 @@
+127.0.0.1 - - [15/Jul/2013:11:31:53 +0530] "GET / HTTP/1.1" 200 1130
+127.0.0.1 - - [15/Jul/2013:11:31:53 +0530] "GET /myServeletNew1/ HTTP/1.1" 200 2308
+127.0.0.1 - - [15/Jul/2013:11:31:53 +0530] "GET /favicon.ico HTTP/1.1" 404 973
+127.0.0.1 - - [15/Jul/2013:11:31:53 +0530] "GET /favicon.ico HTTP/1.1" 404 973
+127.0.0.1 - - [15/Jul/2013:11:31:55 +0530] "GET /myServeletNew1/MainPage.jsp HTTP/1.1" 200 501
+127.0.0.1 - - [15/Jul/2013:11:31:59 +0530] "GET /myServeletNew1/MainServlet?page=demartment&submit=submit HTTP/1.1" 200 646
+127.0.0.1 - - [15/Jul/2013:11:32:05 +0530] "POST /myServeletNew1/DepartmentServlet HTTP/1.1" 200 626

@@ -1,0 +1,7 @@
+package com.webonise.assignment.dinningphilosopher;
+
+public class PhilosopherDining 
+{
+	Philosopher rana=new Phiposopher();
+
+}

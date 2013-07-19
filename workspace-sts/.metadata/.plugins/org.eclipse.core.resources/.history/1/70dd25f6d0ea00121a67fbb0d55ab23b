@@ -1,0 +1,13 @@
+package com.webonise.servletdemo.service;
+
+public class DepartmentService implements DepartmentServiceInterface
+{
+
+	@Override
+	public void addIntoDepartment() 
+	{
+	
+		
+	}
+
+}

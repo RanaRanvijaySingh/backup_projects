@@ -1,0 +1,5 @@
+package com.webonise.servletdemo.model.Employee;
+
+public interface CreateEmployee {
+
+}

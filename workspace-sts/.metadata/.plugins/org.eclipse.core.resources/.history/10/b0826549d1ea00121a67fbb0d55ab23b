@@ -1,0 +1,7 @@
+package com.webonise.servletdemo.service;
+
+public interface DepartmentServiceInterface 
+{
+	public void addIntoDepartment();
+
+}

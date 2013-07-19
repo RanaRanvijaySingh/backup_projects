@@ -1,0 +1,103 @@
+package com.webonise.serveletdemo.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.mysql.jdbc.Statement;
+import com.webonise.servletdemo.model.Employee.imp.Employee;
+
+/**
+ * Servlet implementation class AddEmployee
+ */
+@WebServlet("/AddEmployee")
+public class AddEmployee extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+      
+	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+	 
+	private static final String url = "jdbc:mysql://localhost/test";
+ 
+    private static final String user = "root";
+ 
+    private static final String password = "root";
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AddEmployee() 
+    {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter out= response.getWriter();
+		String name=request.getParameter("name");
+		String id=request.getParameter("id");
+		String age=request.getParameter("age");
+		String dob=request.getParameter("dob");
+		
+		String dept_id=request.getParameter("dept_id");
+		out.println("<h3>the employee details are: </h3>");
+		out.println(name);
+		out.println(id);
+		out.println(age);
+		out.println(dob);
+		
+	
+			Connection con = null;
+			try 
+			{
+		
+				con = DriverManager.getConnection(url, user, password);
+		 
+				Statement stat_EMP = null;
+			
+				stat_EMP = (Statement) con.createStatement();
+		
+			
+			String query_reg = "create table employee(id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,"
+					+ "fname VARCHAR(15) NOT NULL,"
+					+ "age TINYINT(3) UNSIGNED NOT NULL,"
+					+ "dob DATE NOT NULL,"
+					+ "dept_id TINYINT UNSIGNED NOT NULL,"
+					+ "PRIMARY KEY(id),"
+					+ "FOREIGN KEY (dept_id) REFERENCES department(id))"; 
+		    	
+					stat_EMP.executeUpdate(query_reg);
+				
+			}
+			catch (SQLException e) 
+			{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+			}	
+			out.println(dept_id);
+		
+		
+		//getServletConfig().getServletContext().getRequestDispatcher("/AddDepatment.jsp").forward(request, response); 
+		
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	}
+
+}

@@ -1,0 +1,19 @@
+package com.webonise.servletdemo.service;
+
+import com.webonise.serveletdemo.model.Employee;
+import com.webonise.sevletdemo.dao.EmployeeDoaInterface;
+import com.webonise.sevletdemo.dao.EmployeeImp;
+
+public class EmployeeService implements EmployeeServiceInterface
+{
+
+	@Override
+	public void addIntoEmployee(Employee employee) 
+	{
+			EmployeeDoaInterface employeeDoa=new EmployeeImp();
+				employeeDoa.addEmployeeRow(employee);
+			
+		
+	}
+
+}

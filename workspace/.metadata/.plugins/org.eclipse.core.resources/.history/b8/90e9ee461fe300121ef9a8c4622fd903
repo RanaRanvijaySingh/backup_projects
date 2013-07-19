@@ -1,0 +1,5 @@
+package polygon_assignment1.JAVA.polygon_assign;
+
+public interface Polygon {
+
+}

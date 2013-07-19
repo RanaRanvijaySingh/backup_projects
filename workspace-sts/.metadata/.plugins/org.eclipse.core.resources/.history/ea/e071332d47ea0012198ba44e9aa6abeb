@@ -1,0 +1,5 @@
+package com.webonise.servletdemo.model;
+
+public interface InsertRow {
+
+}

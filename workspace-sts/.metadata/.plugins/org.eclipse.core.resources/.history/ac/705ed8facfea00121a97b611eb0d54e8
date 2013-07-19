@@ -1,0 +1,13 @@
+package com.webonise.sevletdemo.dao;
+
+public class DepartmentImp implements DepartmentDoaInterface 
+{
+
+	@Override
+	public void addDepartmentRow() 
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+}

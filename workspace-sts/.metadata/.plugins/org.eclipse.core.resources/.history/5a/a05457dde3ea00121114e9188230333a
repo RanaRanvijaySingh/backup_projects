@@ -1,0 +1,38 @@
+package com.webonise.sevletdemo.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import com.mysql.jdbc.Statement;
+import com.webonise.serveletdemo.model.Department;
+
+public class DepartmentImp implements DepartmentDoaInterface 
+{
+	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+	 
+	private static final String url = "jdbc:mysql://localhost/test";
+ 
+    private static final String user = "root";
+ 
+    private static final String password = "root";
+
+	@Override
+	public void addDepartmentRow( Department department) throws SQLException
+	{
+		System.out.println("dao : trying out connection ");
+		Connection con = DriverManager.getConnection(url, user, password);   
+    	
+	
+		Statement stat_DEPT = (Statement) con.createStatement();
+		
+		System.out.println("dao :  try to insert");
+		String sql = "insert into department values(NULL," +
+				department.getName()+
+				")";
+   	 stat_DEPT.executeUpdate(sql);
+		
+   	System.out.println("dao : insertion done !");
+	}
+
+}

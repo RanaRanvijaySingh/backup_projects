@@ -1,0 +1,23 @@
+package com.webonise.assignment.reentrantlock;
+import java.io.*;
+import java.util.concurrent.locks.ReentrantLock;
+public class ReentrantLockDemo 
+{
+	public static void main (String args[])throws IOException
+	{
+		ReentrantLock []lock=new ReentrantLock[5];
+		for(int i=0;i<5;i++)
+		{
+			lock[i]=new ReentrantLock();
+		}
+		try
+		{
+			System.out.println("hello this is a demo");
+		}
+		catch(Exception e)
+		{
+			
+		}
+	}
+
+}

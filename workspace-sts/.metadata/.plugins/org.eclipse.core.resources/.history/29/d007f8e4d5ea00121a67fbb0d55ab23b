@@ -1,0 +1,20 @@
+package com.webonise.servletdemo.service;
+
+import java.sql.SQLException;
+
+import com.webonise.serveletdemo.model.Department;
+import com.webonise.sevletdemo.dao.DepartmentDoaInterface;
+import com.webonise.sevletdemo.dao.DepartmentImp;
+
+public class DepartmentService implements DepartmentServiceInterface
+{
+
+	@Override
+	public void addIntoDepartment(Department department) throws SQLException 
+	{
+		DepartmentDoaInterface departmentDao=new DepartmentImp();
+		departmentDao.addDepartmentRow(department);
+		
+	}
+
+}

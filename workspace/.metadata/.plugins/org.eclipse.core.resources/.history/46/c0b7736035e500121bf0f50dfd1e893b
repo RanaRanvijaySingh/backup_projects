@@ -1,0 +1,20 @@
+package com.webonise.assignment.reentrantlock;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class DemoPrint
+{
+	String hello=null;
+	Lock lock;
+	DemoPrint(ReentrantLock lock)
+	{
+		lock=lock;
+		hello="message";
+	}
+	void displayMessage()
+	{
+		
+	}
+	
+}

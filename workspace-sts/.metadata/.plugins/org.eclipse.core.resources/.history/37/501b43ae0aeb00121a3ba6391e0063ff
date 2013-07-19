@@ -1,0 +1,11 @@
+package com.webonise.sevletdemo.dao;
+
+import java.sql.SQLException;
+
+import com.webonise.serveletdemo.model.Department;
+
+public interface DepartmentDoaInterface 
+{
+	void addDepartmentRow(Department department) throws SQLException;
+
+}
