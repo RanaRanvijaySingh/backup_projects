@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd" version="2.0">
+
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>Example TLD</short-name>
+
+	<tag>
+		<name>MySearch</name>
+		<tag-class>com.webonise.vaar.view.VaarSearchTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>definition</name>
+			<required>true</required>
+		</attribute>
+	</tag>
+
+</taglib>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+   <bean id="employeebean" class="com.webonise.serveletdemo.model.Employee">
+   
+       <property name="name" value="rana"/>
+       <property name="id" value="33"/>
+       <property name="age" value="33"/>
+       <property name="dob" value="1989-11-05"/>
+       <property name="dept_id" value="2"/>
+   
+   </bean>
+
+</beans>

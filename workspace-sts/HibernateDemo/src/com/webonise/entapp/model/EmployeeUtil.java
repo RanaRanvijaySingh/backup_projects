@@ -27,7 +27,8 @@ public class EmployeeUtil {
       Session session = factory.openSession();
       Transaction tx = null;
      
-      try{
+      try
+      {
          tx = session.beginTransaction();
          Employee employee = new Employee("vijay" , "baba" ,17000);
        
